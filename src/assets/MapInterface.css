@@ -1,0 +1,66 @@
+:root{
+    font-size: 16px;
+}
+
+.Map{
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    height: 100vh;
+    background-color: beige;
+}
+
+image {
+    cursor: pointer;
+    transition: filter 0.2s ease;
+  }
+    
+line {
+    stroke-dasharray: 10, 6;
+    stroke-dashoffset: 0;
+    animation: dashmove 1s linear infinite;
+    transition: stroke 0.3s ease;
+  }
+
+  
+  @keyframes dashmove {
+    to {
+      stroke-dashoffset: 16;
+    }
+  }
+
+
+.locked{
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+.boss {
+    cursor: pointer;
+  }
+
+
+  circle {
+    transition: filter 0.2s ease;
+  }
+  
+  g.clickable:hover circle {
+    filter: drop-shadow(0 0 6px rgb(202, 21, 21));
+  }
+  
+  
+
+  .map-line {
+    stroke-dasharray: 10, 6;
+    stroke-dashoffset: 0;
+    animation: dashmove 1s linear infinite;
+    transition: stroke 0.3s ease;
+  }
+  
+  .map-hitbox {
+    stroke: rgba(0, 0, 0, 0.001);
+    stroke-width: 30;
+    pointer-events: stroke;
+  }
+  

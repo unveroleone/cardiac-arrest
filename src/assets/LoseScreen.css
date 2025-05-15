@@ -1,0 +1,15 @@
+.lose-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #282c34;
+  color: white;
+}
+
+.lose-screen p{
+  font-size: 1.2rem;
+  animation: pulseText 2s infinite ease-in-out;
+  text-align: center;
+}

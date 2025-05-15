@@ -1,0 +1,135 @@
+.card-wrapper {
+    position: relative;
+    display: inline-block;
+    transition: all;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card-wrapper:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.mana-crystal {
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    width: 40px;
+    height: 40px;
+    background-image: url('/media/blue.png');
+    background-size: cover;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.card {
+    position: relative;
+    background: radial-gradient(circle, #fdfdfd 60%, #d2b48c 100%);
+    width: 180px;
+    height: 260px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 35px;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2), 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 4px solid #5c4328;
+    overflow: hidden; 
+    cursor: pointer;
+    z-index: 1;
+}
+
+
+
+.header {
+    text-align: center;
+    position: relative;
+    width: 90%;
+}
+
+.header p {
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    pointer-events: none;
+    user-select: none;
+}
+
+.header h1 {
+    background-color: #c49e62;
+    border-radius: 5px;
+    padding: 2px 8px;
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c1d0f;
+    text-align: center;
+    box-shadow: inset 0 -2px 4px rgba(0,0,0,0.2);
+    pointer-events: none;
+    user-select: none;
+}
+
+.card-image {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.card-image img {
+    width: 90px;
+    height: 80px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+    pointer-events: none;
+}
+
+.card-description {
+    background-color: #eee0c9;
+    padding: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+    border-top: 2px solid #5c4328;
+    width: 95%;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #2c1d0f;
+    pointer-events: none;
+    user-select: none;
+
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    height: auto;
+    line-height: 1.2;   
+    max-height: 10.5rem;
+
+}
+
+.corner-cost {
+    position: absolute;
+    top: 3px;
+    left: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 2px black;
+    pointer-events: none;
+}

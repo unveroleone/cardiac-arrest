@@ -1,0 +1,277 @@
+body {
+  overflow: hidden;
+}
+
+#game { 
+  background-color: #1f1e1e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  min-height: 100vh;
+}
+
+#fighting-area {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2rem;
+  background-color: var(--card-color);
+  border-radius: 1rem;
+  box-shadow: var(--card-shadow);
+}
+
+.health-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.health-bar-container {
+  position: relative;
+  width: 250px;
+  height: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 0 2px #aaa inset;
+  box-sizing: border-box;
+  pointer-events: none;
+
+}
+
+.health-bar-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: green;
+  transition: width 0.3s ease;
+  z-index: 0;
+}
+
+.health-bar-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  color: white;
+  font-weight: bold;
+  line-height: 24px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.heart-in-bar {
+  position: absolute;
+  left: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  z-index: 2;
+}
+
+.enemy-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.enemy {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.2rem;
+}
+
+.enemy-image-wrapper {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  pointer-events: none;
+}
+
+.enemy-image {
+  width: 250px;
+  height: auto;
+}
+
+.enemy-damage{
+  pointer-events: none;
+
+}
+
+.player{
+  margin-top: 1.12rem;
+}
+
+
+.Player-Image img{
+  width: 220px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+.Player-Image{
+  position: absolute;
+  top: 8.6rem;
+  left: 25%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.health-bar-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#heart {
+  width: 20px;
+  height: 20px;
+}
+
+.shield-info {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: white;
+}
+
+.shield-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.player-status {
+  margin-top: 0.5rem;
+}
+
+.available-cards, .used-cards {
+  background: var(--highlight);
+  color: var(--text-color);
+  border-radius: 2rem;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.energy {
+  position: relative;
+  cursor: default;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  height: 81px;
+  margin-right: 2rem;
+  transform: translateX(-1rem) translateY(-11rem);
+}
+
+.energy img {
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.energy-number{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.end-turn {
+  font-size: 1.1rem;
+  width: 141px;
+  height: 41px;
+  background-color: #8b0000;
+  color: white;
+  border: 2px solid   #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  transform: translateX(4rem) translateY(-12.2rem);
+  white-space: nowrap;
+
+}
+
+.end-turn:hover {
+  transform: translateX(4rem) translateY(-12.2rem) scale(1.05);
+}
+
+#hand-area-wrapper {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 4rem;
+  margin-left: 1.8rem;
+}
+
+#deck-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#hand-area {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: 232px;
+  min-width: 703px;
+  gap: 1rem;
+  padding: 1rem;
+  margin-top: 7rem;
+  border-radius: 1rem;
+}
+
+.deck, .discard-pile {
+  width: 81px;
+  height: 81px;
+  transition: all 0.3s ease;
+}
+
+.deck{
+  transform: translateY(-1rem) translateX(-2rem);
+}
+
+.discard-pile{
+  transform: translateY(-0.9rem);
+}
+
+.deck img, .discard-pile img {
+  width: 80px;
+  height: 80px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.deck:hover {
+  transform: translateY(-1rem) translateX(-2rem) scale(1.1);
+  cursor: pointer;
+}
+
+.discard-pile:hover{
+  transform: translateY(-0.9rem) scale(1.1);
+  cursor: pointer;
+}
