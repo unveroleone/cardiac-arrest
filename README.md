@@ -1,93 +1,172 @@
 # Cardiac Arrest
 
+A deck-building card battler game where you strategically use cards to defeat enemies and progress through increasingly difficult challenges!
+
+![Game Logo](public/media/Titel-CardiacArrest.png)
+
+## Game Overview
+
+Cardiac Arrest is a roguelike card-based strategy game where you battle through a series of increasingly difficult enemies before facing the final boss. Build and enhance your deck as you progress, combining powerful card effects to vanquish your foes.
+
+## How to Play
+
+### Game Flow
+1. **Start Menu**: Begin your adventure from the start screen
+2. **Map Screen**: Navigate through a branching path, choosing your next enemy encounter
+3. **Battle Interface**: Engage in turn-based combat using your deck of cards
+4. **Victory Screen**: After winning a battle, select a new card to add to your deck
+5. **Final Boss**: After defeating all enemies, challenge the boss for ultimate victory
+
+### Battle Mechanics
+
+#### Turn Structure
+- **Player's Turn**: 
+  - Start with 3 energy
+  - Draw 5 cards from your deck
+  - Play cards that cost energy
+  - End your turn when ready
+- **Enemy's Turn**: 
+  - Enemy performs one action (attack, buff, or heal)
+  - Your shield resets to 0
+  - Your turn begins again with a fresh hand
+
+#### Card Types
+- **Attack Cards**: Deal damage to enemies
+- **Shield Cards**: Grant protection that absorbs damage
+- **Buff Cards**: Increase your strength for multiple turns
+- **Energy Cards**: Generate additional energy
+- **Draw Cards**: Let you draw additional cards
+
+#### Strategic Elements
+- **Strength Buff**: Increases the damage of all your attack cards
+- **Shield Management**: Blocks enemy damage but resets each turn
+- **Deck Building**: Choose new cards wisely to create powerful combinations
+- **Resource Management**: Balance energy usage and card effects
+
+### Enemies
+
+The game features various enemies with unique attributes:
+- **Slime**: Low health, basic attacks
+- **Goblin**: Moderate health and damage
+- **Ogre**: High health, powerful attacks
+- **Final Boss**: Extreme health and damage with varied attack patterns
+
+Each enemy can:
+- **Attack**: Deal damage to you
+- **Buff**: Increase their attack damage
+- **Heal**: Restore some of their health
+
+## Card Collection
+
+The game includes various cards with different effects:
+
+| Card Name | Cost | Type | Effect |
+|-----------|------|------|--------|
+| Strike | 1 | Attack | Deal 6 damage |
+| Defend | 1 | Shield | Gain 5 shield |
+| Buff | 2 | Attack, Buff | Deal 8 damage, gain strength |
+| Strike & Defend | 1 | Attack, Shield | Deal 5 damage, gain 5 shield |
+| Quick Draw | 0 | Draw, Energy | Draw 1 card, gain 1 energy |
+| Shield Up | 1 | Shield, Draw | Gain 8 shield, draw 1 card |
+| Invincible | 2 | Shield | Gain 30 shield |
+| Double Up | 1 | Shield | Double your shield |
+| Shield Slam | 1 | Attack | Deal damage equal to shield |
+| Heavy Blade | 2 | Attack | Deal 14 damage + 50% strength bonus |
+| Efficient Strike | 1 | Attack, Draw | Deal 9 damage, draw 1 card |
+| Energy Boost | 0 | Energy | Gain 2 energy |
+| Burning Draw | 1 | Draw | Draw 2 cards |
+| Destruction | 2 | Attack | Deal 20 damage |
+| Dropkick | 1 | Attack, Energy, Draw | Deal 5 damage, if strength: +1 energy, +1 card |
+| Strength | 1 | Buff | Gain 2 strength |
+| Annihilation | 3 | Attack | Deal 27 damage |
+
+## Winning the Game
+
+To win Cardiac Arrest, you must:
+1. Defeat the first three enemies in sequence
+2. Unlock and defeat the final boss
+3. Reach the final victory screen
+
+If your health reaches 0 during any battle, you lose and must start over with a fresh deck.
+
+## Technical Implementation
+
+Cardiac Arrest is built using:
+- React with TypeScript for UI components and game logic
+- Vite for fast development and building
+- CSS for styling and animations
+
+Key components:
+- `BattleInterface`: Core battle mechanics and turn management
+- `Cards`: Card definitions and effects
+- `Enemy`: Enemy behavior and AI
+- `MapInterface`: Game progression system
 
 
-## Getting started
+## Credits
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Cardiac Arrest is a card battler inspired by games like Slay the Spire and other roguelike deck builders, created as a demonstration project to showcase React game development.
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+## Game Screenshots
 
-## Add your files
+![Battle Interface](public/media/Game.png)
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### Main Game Elements
 
-```
-cd existing_repo
-git remote add origin https://code.swisscom.com/Ramon.Zielke/cardiac-arrest.git
-git branch -M main
-git push -uf origin main
-```
+#### Map Interface
+The map shows your progression path with nodes representing enemy encounters:
+- Regular enemies (early encounters)
+- Elite enemies (middle encounters)
+- Boss (final encounter)
 
-## Integrate with your tools
+#### Battle Interface
+The battle screen contains:
+- Player stats (health, shield, buffs)
+- Enemy information (health, intent)
+- Hand of cards
+- Energy counter
+- Deck and discard pile
+- End turn button
 
-- [ ] [Set up project integrations](https://code.swisscom.com/Ramon.Zielke/cardiac-arrest/-/settings/integrations)
+#### Card Interaction
+- Cards require energy to play (shown in the crystal)
+- Hover over cards to see their full description
+- Click a card to play it if you have enough energy
 
-## Collaborate with your team
+## Project Structure
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+The project follows a component-based architecture:
+- `src/` - Source code
+  - `BattleInterface/` - Battle components and logic
+  - `UI/` - Menu and navigation components
+  - `assets/` - CSS styling
+  - `cards.tsx` - Card definitions
+  - `App.tsx` - Main game controller
 
-## Test and Deploy
+## Development
 
-Use the built-in continuous integration in GitLab.
+This project uses:
+- React for UI components
+- TypeScript for type safety
+- CSS for styling
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+### Testing the Game
 
-***
+The game can be tested by:
+1. Starting from the main menu
+2. Navigating the map
+3. Testing different card combinations in battles
+4. Verifying victory and defeat conditions
 
-# Editing this README
+## Future Improvements
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Potential enhancements include:
+- More card varieties and synergies
+- Additional enemy types with unique behaviors
+- Persistent progression between runs
+- Audio effects and background music
+- Mobile-friendly responsive design
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+This project is licensed under the MIT License - see the LICENSE file for details.
